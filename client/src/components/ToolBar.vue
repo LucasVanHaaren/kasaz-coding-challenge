@@ -10,28 +10,17 @@
       placeholder="Search"
       dense
       clearable
+      v-model="searchBarData"
     />
-    <v-btn icon color="green">
+    <v-btn icon color="green" @click.native="emitSearchBarClick">
       <v-icon>fas fa-search</v-icon>
     </v-btn>
-    <template v-if="$vuetify.breakpoint.mdAndUp">
-      <v-btn icon>
-        <v-icon>mdi-export-variant</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-delete-circle</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-plus-circle</v-icon>
-      </v-btn>
-    </template>
-    <template v-else>
-      <v-btn text>
-        Filtros
-        <v-icon color="green" right>fas fa-chevron-down</v-icon>
-        <!-- <v-icon color="green" right>fas fa-chevron-up</v-icon> -->
-      </v-btn>
-    </template>
+    <v-spacer v-if="$vuetify.breakpoint.mdAndUp"></v-spacer>
+    <v-btn text @click.native="emitFiltersClick">
+      Filtros
+      <v-icon v-if="showFilters" color="green" right>fas fa-chevron-up</v-icon>
+      <v-icon v-else color="green" right>fas fa-chevron-down</v-icon>
+    </v-btn>
   </v-toolbar>
 </template>
 
@@ -40,7 +29,24 @@
 export default {
   name: 'ToolBar',
   data: () => ({
-    // 
-  })
+    searchBarData: ""
+  }),
+  methods: {
+    emitFiltersClick: function() {
+      this.$emit("filtersClick");
+    },
+    emitSearchBarClick: function() {
+      if(this.searchBarData) {
+        this.$emit("searchBarClick", this.searchBarData);
+        this.searchBarData = "";
+      }
+    }
+  },
+  props: {
+    showFilters: {
+      type: Boolean,
+      required: true
+    }
+  }
 };
 </script>

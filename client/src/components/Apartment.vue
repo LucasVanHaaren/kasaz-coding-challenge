@@ -1,6 +1,6 @@
 <template>
   <v-card class="mx-auto" max-width="700" outlined>
-    <v-img class="white--text align-end" height="300px" :src="thumbnail">
+    <v-img :aspect-ratio="16/9" class="white--text align-end" height="300px" :src="thumbnail">
       <div class="ml-5 mb-2">
         <h1>{{ price }}€</h1>
         <h3>{{ pricePerSqm }}€/m²</h3>
@@ -63,7 +63,8 @@ export default {
       },
       thumbnail: {
           type: String,
-          required: true
+          required: false,
+          default: "/pictures/default.jpg"
       }
   }
 };

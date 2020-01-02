@@ -3,23 +3,73 @@
     <v-card outlined>
       <v-form>
         <v-container>
-          <v-label>PRECIO</v-label>
-          <v-select :items="filters.price" label="min" v-model="selectedFilters.price.min"></v-select>
-          <v-select :items="maxPriceFilter" label="max" v-model="selectedFilters.price.max"></v-select>
+          <v-row>
+            <v-col cols="12" align="center">
+              <v-label>PRECIO</v-label>
+            </v-col>
+            <v-col>
+              <v-row>
+                <v-select
+                  outlined
+                  :items="filters.price"
+                  label="min"
+                  v-model="selectedFilters.price.min"
+                />
+                <v-select
+                  outlined
+                  :items="maxPriceFilter"
+                  label="max"
+                  v-model="selectedFilters.price.max"
+                />
+              </v-row>
+            </v-col>
+          </v-row>
 
-          <v-label>TAMAÑO</v-label>
-          <v-select :items="filters.sqm" label="min" v-model="selectedFilters.sqm.min"></v-select>
-          <v-select :items="maxSqmFilter" label="max" v-model="selectedFilters.sqm.max"></v-select>
+          <v-row>
+            <v-col cols="12" align="center">
+              <v-label>TAMAÑO</v-label>
+            </v-col>
+            <v-col>
+              <v-row>
+                <v-select
+                  outlined
+                  :items="filters.sqm"
+                  label="min"
+                  v-model="selectedFilters.sqm.min"
+                />
+                <v-select
+                  outlined
+                  :items="maxSqmFilter"
+                  label="max"
+                  v-model="selectedFilters.sqm.max"
+                />
+              </v-row>
+            </v-col>
+          </v-row>
 
-          <v-label>HABITACIONES</v-label>
-          <v-select :items="filters.bedroomsCount" v-model="selectedFilters.minBedroomsCount"></v-select>
+          <v-row>
+            <v-col cols="12" align="center">
+              <v-label>HABITACIONES</v-label>
+            </v-col>
+            <v-col sm="6" offset-sm="3">
+              <v-select :items="filters.bedroomsCount" v-model="selectedFilters.minBedroomsCount"></v-select>
+            </v-col>
+          </v-row>
 
-          <v-label>BAÑOS</v-label>
-          <v-select :items="filters.bathroomsCount" v-model="selectedFilters.minBathroomsCount"></v-select>
+          <v-row>
+            <v-col cols="12" align="center">
+              <v-label>BAÑOS</v-label>
+            </v-col>
+            <v-col sm="6" offset-sm="3">
+              <v-select :items="filters.bathroomsCount" v-model="selectedFilters.minBathroomsCount"></v-select>
+            </v-col>
+          </v-row>
 
-          <v-col>
-            <v-btn color="purple darken-2" dark @click="emitSearchWithFiltersClick">Ver Inmuebles</v-btn>
-          </v-col>
+          <v-row>
+            <v-col cols="12" align="center">
+              <v-btn color="purple darken-2" dark @click="emitSearchWithFiltersClick">Ver Inmuebles</v-btn>
+            </v-col>
+          </v-row>
         </v-container>
       </v-form>
     </v-card>

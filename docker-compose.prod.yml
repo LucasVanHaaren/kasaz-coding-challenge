@@ -1,0 +1,13 @@
+version: '3'
+services:
+
+  server:
+    ports: 
+        - "4444:4444"
+    environment:
+        - NODE_ENV=production
+        - APP_PORT=4444
+        - DB_NAME=kasaz
+        - DB_HOST=database
+        - DB_PORT=27017
+    command: ["npm","run","start"]

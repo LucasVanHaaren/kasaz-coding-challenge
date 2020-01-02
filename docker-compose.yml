@@ -1,0 +1,9 @@
+version: '3'
+services:
+
+  server:
+    container_name: kasaz-coding-challenge-server
+    restart: always
+    build:
+      context: ./server
+      dockerfile: Dockerfile

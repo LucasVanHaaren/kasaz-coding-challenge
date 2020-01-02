@@ -1,0 +1,11 @@
+version: '3'
+services:
+
+  server:
+    volumes:
+        - "./server:/app"
+    ports: 
+        - "3333:3333"
+    environment:
+        - NODE_ENV=development
+    command: ["npm","run","dev"]

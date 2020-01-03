@@ -3,6 +3,10 @@ services:
 
     server:
         container_name: kasaz-coding-challenge-server.dev
+        restart: always
+        build:
+            context: ./server
+            dockerfile: Dockerfile
         volumes:
             - "./server:/app"
         ports: 
@@ -13,6 +17,7 @@ services:
     
     client:
         container_name: kasaz-coding-challenge-client.dev
+        restart: always
         build:
             context: ./client
             dockerfile: Dockerfile.dev

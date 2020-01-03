@@ -5,7 +5,8 @@ const apartmentSchema = mongoose.Schema({
     price: Number,
     sqm: Number,
     bedroomsCount: Number,
-    bathroomsCount: Number
+    bathroomsCount: Number,
+    thumbnail: String
 }, {
     versionKey: false
 });

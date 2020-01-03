@@ -5,7 +5,7 @@ module.exports = {
         port: 4444
     },
     db: {
-        name: "kasaz-test",
+        name: "test",
         host: "localhost",
         port: 27017,
         logs: true

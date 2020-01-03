@@ -26,3 +26,14 @@ services:
         ports:
             - "8080:8080"
         command: ["npm","run","serve"]
+    
+    database:
+        container_name: kasaz-coding-challenge-database.dev
+        restart: always
+        image: mongo
+        volumes:
+            - "./database/init.js:/docker-entrypoint-initdb.d/init.js:ro"
+        ports:
+            - "27017:27017"
+        environment:
+            - MONGO_INITDB_DATABASE=develop

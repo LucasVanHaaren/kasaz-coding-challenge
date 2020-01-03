@@ -14,3 +14,15 @@ services:
         environment:
             - NODE_ENV=development
         command: ["npm","run","dev"]
+    
+    client:
+        container_name: kasaz-coding-challenge-client.dev
+        restart: always
+        build:
+            context: ./client
+            dockerfile: Dockerfile.dev
+        volumes:
+            - "./client:/app"
+        ports:
+            - "8080:8080"
+        command: ["npm","run","serve"]

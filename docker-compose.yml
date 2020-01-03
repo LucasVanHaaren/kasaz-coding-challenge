@@ -16,3 +16,13 @@ services:
         ports: 
             - "4444:4444"
         command: ["npm","start"]
+    
+    client:
+        container_name: kasaz-coding-challenge-client
+        restart: always
+        build:
+            context: ./client
+            dockerfile: Dockerfile.prod
+        ports:
+            - "8080:80"
+        command: ["nginx", "-g", "daemon off;"]

@@ -4,8 +4,9 @@
       :showFilters="showFilterTab"
       @filtersClick="handleFiltersClick"
       @searchBarClick="handleSearchBarClick"
+      @clearSearchBarClick="handleClearSearchBarClick"
     />
-    <FilterTab v-if="showFilterTab" />
+    <FilterTab v-if="showFilterTab" @searchWithFiltersClick="handleSearchWithFiltersClick" />
     <template v-for="(apartment, index) in apartments">
       <Apartment v-bind="apartment" :key="index" class="apartment" />
     </template>
@@ -28,7 +29,8 @@ export default {
   },
   data: () => ({
     showFilterTab: false,
-    apartments: []
+    apartments: [],
+    filters: {}
   }),
   mounted() {
     this.fetchApartments().then(apartmentList => {
@@ -44,16 +46,48 @@ export default {
       return axios.get(url).then(res => {
         return res.data;
       }).catch(err => {
-        console.error(err);
+        throw err;
       });
     },
-    // handleSearchBarClick: function(data) {
-    //   this.fetchApartments(`title=${data}`).then(apartmentList => {
-    //     this.apartments = apartmentList;
-    //   }).catch(err => {
-    //     console.error(err);
-    //   });
-    // },
+    handleSearchBarClick: function(data) {
+      this.fetchApartments(`title=${data}`).then(apartmentList => {
+        this.apartments = apartmentList;
+        this.filters.title = data;
+      }).catch(err => {
+        throw err;
+      });
+    },
+    handleSearchWithFiltersClick: function(data) {
+      this.fetchApartments(this.buildQueryString(data)).then(apartmentList => {
+        this.apartments = apartmentList;
+        this.filters = data;
+      }).catch(err => {
+        throw err;
+      });
+    },
+    buildQueryString(filters) {
+      let query = "";
+      let first = true;
+      for(const filter in filters) {
+        if(!first) query = query + "&";
+        if(filters[filter]) {
+          query = query + filter + "=" + filters[filter];
+          first = false;
+        }
+        
+      }
+      return query;
+    },
+    handleClearSearchBarClick: function() {
+      if(this.filters.title) {
+        this.fetchApartments().then(apartmentList => {
+          this.apartments = apartmentList;
+          this.filters.title = "";
+        }).catch(err => {
+          throw err;
+        });
+      }
+    },
     handleFiltersClick: function() {
       this.showFilterTab = !this.showFilterTab;
     }

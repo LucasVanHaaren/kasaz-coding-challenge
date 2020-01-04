@@ -11,6 +11,7 @@
       dense
       clearable
       v-model="searchBarData"
+      @click:clear="emitClearSearchBarClick"
     />
     <v-btn icon color="green" @click.native="emitSearchBarClick">
       <v-icon>fas fa-search</v-icon>
@@ -38,9 +39,11 @@ export default {
     emitSearchBarClick: function() {
       if(this.searchBarData) {
         this.$emit("searchBarClick", this.searchBarData);
-        this.searchBarData = "";
       }
-    }
+    },
+    emitClearSearchBarClick: function() {
+      this.$emit("clearSearchBarClick");
+    },
   },
   props: {
     showFilters: {

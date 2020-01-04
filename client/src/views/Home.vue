@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import axios from "axios";
 // @ is an alias to /src
 import ToolBar from '@/components/ToolBar.vue'
 import Apartment from '@/components/Apartment.vue'
@@ -27,30 +28,32 @@ export default {
   },
   data: () => ({
     showFilterTab: false,
-    apartments: [
-      {
-        title: "Piso exterior y en buen estado con ascensor Sant Marti",
-        price: 280000,
-        sqm: 103,
-        bedroomsCount: 4,
-        bathroomsCount: 2,
-        thumbnail: "/pictures/sample1.jpg"
-      },
-      {
-        title: "Piso exterior y pres dos Sant Marti",
-        price: 120000,
-        sqm: 97,
-        bedroomsCount: 2,
-        bathroomsCount: 1,
-        thumbnail: "/pictures/sample2.jpg"
-      }
-    ]
+    apartments: []
   }),
+  mounted() {
+    this.fetchApartments().then(apartmentList => {
+      this.apartments = apartmentList;
+    });
+  },
   methods: {
-    handleSearchBarClick: function(data) {
-      // TODO
-      console.log(`handleSearchBarClick: ${data}`);
+    fetchApartments(params) {
+      let url = 'http://localhost:3333/apartments';
+      if(params) {
+        url = url + '?' + params;
+      }
+      return axios.get(url).then(res => {
+        return res.data;
+      }).catch(err => {
+        console.error(err);
+      });
     },
+    // handleSearchBarClick: function(data) {
+    //   this.fetchApartments(`title=${data}`).then(apartmentList => {
+    //     this.apartments = apartmentList;
+    //   }).catch(err => {
+    //     console.error(err);
+    //   });
+    // },
     handleFiltersClick: function() {
       this.showFilterTab = !this.showFilterTab;
     }

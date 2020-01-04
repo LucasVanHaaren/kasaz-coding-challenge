@@ -11,6 +11,25 @@ module.exports = (() => {
             }
         });
     });
+    route.post("/", (req, res, next) => {
+        const body = req.body;
+        if(body.title && body.price && body.sqm && body.bedroomsCount && body.bathroomsCount) {
+            apartment.create(req.body).then(apart => {
+                res.status(200).send(apart);
+            }).catch(err => {
+                res.status(500).send(err);
+            })
+        } else {
+            res.status(500).end();
+        }
+    });
+    route.delete("/:id", (req, res, next) => {
+        apartment.findByIdAndRemove(req.params.id).then(()=> {
+            res.status(200).end();
+        }).catch(err => {
+            res.status(500).send(err);
+        });
+    });
     return route;
 })();
 

@@ -7,7 +7,10 @@
       @clearSearchBarClick="handleClearSearchBarClick"
     />
     <FilterTab v-if="showFilterTab" @searchWithFiltersClick="handleSearchWithFiltersClick" />
-    <template v-for="(apartment, index) in apartments">
+    <div v-if="loading" class="text-center loader">
+      <v-progress-circular indeterminate color="green" />
+    </div>
+    <template v-else v-for="(apartment, index) in apartments">
       <Apartment v-bind="apartment" :key="index" class="apartment" />
     </template>
   </div>
@@ -30,7 +33,8 @@ export default {
   data: () => ({
     showFilterTab: false,
     apartments: [],
-    filters: {}
+    filters: {},
+    loading: true
   }),
   mounted() {
     this.fetchApartments().then(apartmentList => {
@@ -39,13 +43,16 @@ export default {
   },
   methods: {
     fetchApartments(params) {
+      this.loading = true;
       let url = 'http://localhost:3333/apartments';
       if(params) {
         url = url + '?' + params;
       }
       return axios.get(url).then(res => {
+        this.loading = false;
         return res.data;
       }).catch(err => {
+        this.loading = false;
         throw err;
       });
     },
@@ -58,6 +65,7 @@ export default {
       });
     },
     handleSearchWithFiltersClick: function(data) {
+      this.showFilterTab = false;
       this.fetchApartments(this.buildQueryString(data)).then(apartmentList => {
         this.apartments = apartmentList;
         this.filters = data;
@@ -98,5 +106,9 @@ export default {
 <style lang="scss" scoped>
 .apartment {
   margin-top: 0.5em;
+}
+
+.loader {
+  margin-top: 3em;
 }
 </style>

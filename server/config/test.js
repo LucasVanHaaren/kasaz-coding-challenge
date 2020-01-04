@@ -5,7 +5,7 @@ module.exports = {
         port: 4444
     },
     db: {
-        name: "test",
+        name: "develop",
         host: "localhost",
         port: 27017,
         logs: true

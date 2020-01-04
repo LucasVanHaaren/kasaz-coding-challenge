@@ -13,13 +13,13 @@
                   outlined
                   :items="filters.price"
                   label="min"
-                  v-model="selectedFilters.price.min"
+                  v-model="selectedFilters.minPrice"
                 />
                 <v-select
                   outlined
                   :items="maxPriceFilter"
                   label="max"
-                  v-model="selectedFilters.price.max"
+                  v-model="selectedFilters.maxPrice"
                 />
               </v-row>
             </v-col>
@@ -35,13 +35,13 @@
                   outlined
                   :items="filters.sqm"
                   label="min"
-                  v-model="selectedFilters.sqm.min"
+                  v-model="selectedFilters.minSqm"
                 />
                 <v-select
                   outlined
                   :items="maxSqmFilter"
                   label="max"
-                  v-model="selectedFilters.sqm.max"
+                  v-model="selectedFilters.maxSqm"
                 />
               </v-row>
             </v-col>
@@ -88,22 +88,18 @@ export default {
   },
   computed: {
     maxPriceFilter: function() {
-      return this.filters.price.filter(price => price.value >= this.selectedFilters.price.min);
+      return this.filters.price.filter(price => price.value >= this.selectedFilters.minPrice);
     },
     maxSqmFilter: function() {
-      return this.filters.sqm.filter(sqm => sqm.value >= this.selectedFilters.sqm.min);
+      return this.filters.sqm.filter(sqm => sqm.value >= this.selectedFilters.minSqm);
     },
   },
   data: () => ({
     selectedFilters: {
-      price: {
-        min: null,
-        max: null
-      },
-      sqm: {
-        min: null,
-        max: null
-      },
+      minPrice: null,
+      maxPrice: null,
+      minSqm: null,
+      maxSqm: null,
       minBedroomsCount: null,
       minBathroomsCount: null
     },

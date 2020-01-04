@@ -2,17 +2,14 @@
   <div class="home">
     <ToolBar
       :showFilters="showFilterTab"
+      :showClearFiltersBtn="!!Object.keys(filters).length"
       @filtersClick="handleFiltersClick"
       @searchBarClick="handleSearchBarClick"
       @clearSearchBarClick="handleClearSearchBarClick"
+      @clearFiltersClick="handleClearFiltersClick"
     />
     <FilterTab v-if="showFilterTab" @searchWithFiltersClick="handleSearchWithFiltersClick" />
-    <div v-if="loading" class="text-center loader">
-      <v-progress-circular indeterminate color="green" />
-    </div>
-    <template v-else v-for="(apartment, index) in apartments">
-      <Apartment v-bind="apartment" :key="index" class="apartment" />
-    </template>
+    <ApartmentList :loading="loading" :apartments="apartments" />
   </div>
 </template>
 
@@ -20,14 +17,14 @@
 import axios from "axios";
 // @ is an alias to /src
 import ToolBar from '@/components/ToolBar.vue'
-import Apartment from '@/components/Apartment.vue'
+import ApartmentList from '@/components/ApartmentList.vue'
 import FilterTab from '@/components/FilterTab.vue'
 
 export default {
   name: 'Home',
   components: {
     ToolBar,
-    Apartment,
+    ApartmentList,
     FilterTab
   },
   data: () => ({
@@ -77,12 +74,11 @@ export default {
       let query = "";
       let first = true;
       for(const filter in filters) {
-        if(!first) query = query + "&";
-        if(filters[filter]) {
+        if(filters[filter] || filters[filter] === 0) {
+          if(!first) query = query + "&";
           query = query + filter + "=" + filters[filter];
           first = false;
         }
-        
       }
       return query;
     },
@@ -98,17 +94,15 @@ export default {
     },
     handleFiltersClick: function() {
       this.showFilterTab = !this.showFilterTab;
+    },
+    handleClearFiltersClick: function() {
+      this.fetchApartments().then(apartmentList => {
+          this.apartments = apartmentList;
+          this.filters = {};
+        }).catch(err => {
+          throw err;
+        });
     }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.apartment {
-  margin-top: 0.5em;
-}
-
-.loader {
-  margin-top: 3em;
-}
-</style>

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApartmentList.vue match snapshot 1`] = `
+<div>
+  <div>
+    <apartment-stub
+      bathroomscount="1"
+      bedroomscount="2"
+      class="apartment"
+      price="150000"
+      sqm="110"
+      thumbnail="/pictures/default.jpg"
+      title="Title 1"
+    />
+    <apartment-stub
+      bathroomscount="2"
+      bedroomscount="4"
+      class="apartment"
+      price="250000"
+      sqm="120"
+      thumbnail="/pictures/default.jpg"
+      title="Title 2"
+    />
+  </div>
+   
+  <!---->
+</div>
+`;

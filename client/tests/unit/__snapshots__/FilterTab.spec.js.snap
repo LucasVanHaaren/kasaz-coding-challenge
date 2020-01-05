@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterTab.vue match snapshot 1`] = `
+<v-expand-transition>
+  <v-card
+    outlined=""
+  >
+    <v-form>
+      <v-container>
+        <v-row>
+          <v-col
+            align="center"
+            cols="12"
+          >
+            <v-label>
+              PRECIO
+            </v-label>
+          </v-col>
+           
+          <v-col>
+            <v-row>
+              <v-select
+                items="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+                label="min"
+                outlined=""
+              />
+               
+              <v-select
+                items="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+                label="max"
+                outlined=""
+              />
+            </v-row>
+          </v-col>
+        </v-row>
+         
+        <v-row>
+          <v-col
+            align="center"
+            cols="12"
+          >
+            <v-label>
+              TAMAÑO
+            </v-label>
+          </v-col>
+           
+          <v-col>
+            <v-row>
+              <v-select
+                items="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+                label="min"
+                outlined=""
+              />
+               
+              <v-select
+                items="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+                label="max"
+                outlined=""
+              />
+            </v-row>
+          </v-col>
+        </v-row>
+         
+        <v-row>
+          <v-col
+            align="center"
+            cols="12"
+          >
+            <v-label>
+              HABITACIONES
+            </v-label>
+          </v-col>
+           
+          <v-col
+            offset-sm="3"
+            sm="6"
+          >
+            <v-select
+              items="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+            />
+          </v-col>
+        </v-row>
+         
+        <v-row>
+          <v-col
+            align="center"
+            cols="12"
+          >
+            <v-label>
+              BAÑOS
+            </v-label>
+          </v-col>
+           
+          <v-col
+            offset-sm="3"
+            sm="6"
+          >
+            <v-select
+              items="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+            />
+          </v-col>
+        </v-row>
+         
+        <v-row>
+          <v-col
+            align="center"
+            cols="12"
+          >
+            <v-btn
+              color="purple darken-2"
+              dark=""
+            >
+              Ver Inmuebles
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-form>
+  </v-card>
+</v-expand-transition>
+`;

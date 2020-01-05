@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToolBar.vue match snapshot 1`] = `
+<v-toolbar
+  color="purple darken-2"
+  dark=""
+>
+  <v-text-field
+    background-color="white"
+    clearable=""
+    color="green"
+    dense=""
+    flat=""
+    hide-details=""
+    light=""
+    placeholder="Buscar"
+    solo=""
+  />
+   
+  <v-btn
+    color="green"
+    icon=""
+  >
+    <v-icon>
+      fas fa-search
+    </v-icon>
+  </v-btn>
+   
+  <v-spacer />
+   
+  <!---->
+   
+  <v-btn
+    text=""
+  >
+    
+    Filtros
+    
+    <v-icon
+      color="green"
+      right=""
+    >
+      fas fa-chevron-down
+    </v-icon>
+  </v-btn>
+</v-toolbar>
+`;

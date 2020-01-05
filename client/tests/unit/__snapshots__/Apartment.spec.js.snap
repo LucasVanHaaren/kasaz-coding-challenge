@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Apartment.vue match snapshot 1`] = `
+<v-card
+  class="mx-auto"
+  max-width="700"
+  outlined=""
+>
+  <v-img
+    aspect-ratio="1.7777777777777777"
+    class="white--text align-end"
+    height="300px"
+    src="/pictures/default.jpg"
+  >
+    <div
+      class="ml-5 mb-2"
+    >
+      <h1>
+        150000€
+      </h1>
+       
+      <h3>
+        1500€/m²
+      </h3>
+    </div>
+  </v-img>
+   
+  <v-card-title>
+    Title
+  </v-card-title>
+   
+  <v-divider />
+   
+  <v-card-actions>
+    <div>
+      <v-icon>
+        fas fa-check-circle
+      </v-icon>
+      
+      100 m²
+    
+    </div>
+     
+    <v-spacer />
+     
+    <v-divider
+      class="mx-4"
+      inset=""
+      vertical=""
+    />
+     
+    <v-spacer />
+     
+    <div>
+      <v-icon>
+        fas fa-bed
+      </v-icon>
+      
+      4 habs.
+    
+    </div>
+     
+    <v-spacer />
+     
+    <v-divider
+      class="mx-4"
+      inset=""
+      vertical=""
+    />
+     
+    <v-spacer />
+     
+    <div>
+      <v-icon>
+        fas fa-bath
+      </v-icon>
+      
+      2 baños
+    
+    </div>
+  </v-card-actions>
+</v-card>
+`;

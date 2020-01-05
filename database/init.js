@@ -38,3 +38,43 @@ db.apartments.save({
     bathroomsCount: 2,
     thumbnail: "https://images.unsplash.com/photo-1560448204-603b3fc33ddc"
 })
+db.apartments.save({
+    title: "Propiedad única por su composición y ubicación",
+    price: 459000,
+    sqm: 139,
+    bedroomsCount: 4,
+    bathroomsCount: 2,
+    thumbnail: "https://images.unsplash.com/photo-1542889601-399c4f3a8402"
+})
+db.apartments.save({
+    title: "Encantador piso junto al Arc de Triomf",
+    price: 430000,
+    sqm: 68,
+    bedroomsCount: 3,
+    bathroomsCount: 2,
+    thumbnail: "https://images.unsplash.com/photo-1539693010221-cd218dfe6565"
+})
+db.apartments.save({
+    title: "Reformado piso de lujo",
+    price: 600000,
+    sqm: 100,
+    bedroomsCount: 2,
+    bathroomsCount: 2,
+    thumbnail: "https://images.unsplash.com/photo-1503174971373-b1f69850bded"
+})
+db.apartments.save({
+    title: "Piso de obra nueva en venta en Vila de Gràcia",
+    price: 557000,
+    sqm: 103,
+    bedroomsCount: 2,
+    bathroomsCount: 1,
+    thumbnail: "https://images.unsplash.com/photo-1546540749-1642fed507fc"
+})
+db.apartments.save({
+    title: "Piso reformado con terraza y ascensor en Eixample",
+    price: 850000,
+    sqm: 183,
+    bedroomsCount: 3,
+    bathroomsCount: 3,
+    thumbnail: "https://images.unsplash.com/photo-1533779283484-8ad4940aa3a8"
+})

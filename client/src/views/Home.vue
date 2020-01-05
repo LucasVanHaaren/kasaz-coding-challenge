@@ -41,7 +41,8 @@ export default {
   methods: {
     fetchApartments(params) {
       this.loading = true;
-      let url = 'http://localhost:3333/apartments';
+      const port = process.env.NODE_ENV === 'development' ? 3333 : 4444;
+      let url = `http://localhost:${port}/apartments`;
       if(params) {
         url = url + '?' + params;
       }
